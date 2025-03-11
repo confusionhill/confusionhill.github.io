@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhan Dika - Portfolio</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      color: lime;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-shadow: 0 0 10px lime;
+      animation: glitch 1s infinite alternate;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-shadow: 0 0 5px lime;
+    }
+
+    .tagline {
+      color: red;
+      text-shadow: 0 0 10px red;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .anonymous-image {
+      width: 150px;
+      height: 150px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5c/Anonymous_emblem.svg');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+    }
+
+    .warning {
+      color: red;
+      font-size: 2rem;
+      text-shadow: 0 0 15px red;
+      margin-top: 20px;
+      animation: glitch 1s infinite alternate;
+    }
+
+    .linkedin-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: black;
+      color: lime;
+      border: 2px solid lime;
+      text-decoration: none;
+      font-size: 1rem;
+      text-shadow: 0 0 5px lime;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .linkedin-button:hover {
+      background-color: lime;
+      color: black;
+      box-shadow: 0 0 20px lime;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      25% { transform: translate(-2px, 2px); }
+      50% { transform: translate(2px, -2px); }
+      75% { transform: translate(-2px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .experience, .projects {
+      background-color: #111;
+      color: lime;
+      border: 1px solid lime;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: 0 0 10px lime;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .experience:hover, .projects:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px lime;
+    }
+
+    .static {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+      opacity: 0.05;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="static"></div>
+  <div class="hero">
+    <div class="anonymous-image"></div>
+    <h1>You have been hacked!</h1>
+    <p>This will happen if you don’t hire me!</p>
+    <p class="warning">Farhan Dika — Platform Engineer, specializing in security.</p>
+    <a href="https://www.linkedin.com/in/fdikazmg/" target="_blank" class="linkedin-button">Connect on LinkedIn</a>
+  </div>
+
+  <div class="section experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Platform Engineer at Gojek</strong> – Optimized unified API location, saving millions annually.</li>
+      <li><strong>Backend Engineer</strong> – Managed PostgreSQL, Go deployments, and Kubernetes orchestration.</li>
+      <li><strong>Mobile Developer</strong> – Developed iOS and Android apps using Kotlin Multiplatform (KMP).</li>
+    </ul>
+  </div>
+
+  <div class="section projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>SaaS AI for Social Media</strong> – Automated social media management using AI.</li>
+      <li><strong>Kubernetes Automation</strong> – Built an automated deployment pipeline with Ansible.</li>
+      <li><strong>React.js Finance Tracker</strong> – Developed a personal finance web app.</li>
+    </ul>
+  </div>
+
+  <script>
+    function handleScroll() {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.75) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  </script>
+</body>
+</html>
